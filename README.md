@@ -22,7 +22,7 @@ This project will allows user to fetch all public repositories based on the keyw
     ```
 
   3. Install yarn packages
-    ```bash
+    ```
     yarn install 
     ```
 
