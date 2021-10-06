@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About the project
 
-Things you may want to cover:
+This project will allows user to fetch all public repositories based on the keyword entered in the search box. In this project we are using github api to search for repositories. The api provides response based on name or discription matches.
 
-* Ruby version
+## Built with
+ * Ruby on Rails
+ * Nodejs
+ * jquery
+ * jquery
+ * webpack-jquery-ui
+ * Stimulus js
+ * Bootstrap 
 
-* System dependencies
+#### Installation
+ 1. Clone the repositoty
 
-* Configuration
+ 2. Install gem package
+    ```bash
+    bundle install
+    ```
 
-* Database creation
+  3. Install yarn packages
+    ```bash
+    yarn install 
+    ```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Example 
+![](git-search.gif)
