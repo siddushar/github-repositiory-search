@@ -1,0 +1,52 @@
+<div class="container-fluid" data-controller="home">
+  <h1 class="text-center">Search Github public repos</h1>
+  <div class="row justify-content-center">
+    
+    <div class="col-xs-12 col-sm-6">
+      <h6> Search github repo's using plain ruby on rails </h6>
+      <%= form_tag  root_path, :method => 'get' do %>
+         <%= text_field_tag :search, params[:search], class: "form-control search-input", placeholder: "Search github repo's" %>
+         <%= submit_tag "search", class: "btn btn-primary button-home" %>
+      <% end %>
+
+      <% @repositories.each do |repo| %>
+        <li style="list-style-type:none;"> <%= repo[:name] %></li>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <h6> Search github repo's using ruby on rails and js</h6>  
+        <input type="text" id="searchRepo" name="phone" placeholder="Search github repo's" >
+    </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#searchRepo").keyup(function(){
+      var text = this.value
+      if (text.length >= 2 ) {
+       $.ajax({
+          type: "get",
+          url: "https://api.github.com/search/repositories",
+          data: { q: text },
+          success: function(response) {
+            repos = response.items.map(function(element){
+                      return element.name;
+                  });
+            show_data(repos)
+          }
+        });
+      }
+    });
+    function show_data(repos) {
+       console.log("respppppp")
+       console.log(repos)
+     $('#searchRepo').autocomplete({
+          source: repos
+      });
+    }
+  });
+</script>
+
